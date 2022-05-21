@@ -1,0 +1,379 @@
+/*@import 'animate.css';*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("img/bg.jpg");
+}
+
+.pocetak {
+    height: auto;
+    border: 5px solid rgba(209, 204, 204, 0.4);
+    border-radius: 10px;
+    /*display: none;*/
+}
+
+.ticket {
+    border: 5px solid rgba(209, 204, 204, 0.4);
+    border-radius: 10px;
+    transition: .2s;
+}
+
+.video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chooseBalls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.counter {
+    display: flex;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border: 5px solid rgba(209, 204, 204, 0.4);
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: rgba(209, 204, 204, 0.4);
+}
+
+.ball {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 8px 3px;
+    background-size: cover;
+}
+
+.choosenNumbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(209, 204, 204, 0.4);
+}
+
+.number-holder {
+    border: 2px solid rgba(209, 204, 204, 0.4);
+    border-radius: 20px;
+    width: 90%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    background: rgba(209, 204, 204, 0.4);;
+}
+
+.choosen {
+    border-radius: 50%;
+    margin: 0 2px;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+}
+
+/*end part 1*/
+.board {
+    height: auto;
+    display: flex;
+    background-color: transparent;
+    border: 5px solid rgba(209, 204, 204, 0.4);
+    border-radius: 10px;
+    flex: 5;
+    padding: 0;
+    /*display: none;*/
+}
+
+.board-part {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px 0 5px;
+}
+
+.board-part .ball-bet {
+    flex: 1;
+}
+
+.board-part-big {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+}
+
+.board-part-big .big-ball {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 5px solid rgba(209, 204, 204, 0.4);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.board-part-big .big-ball .first-ball {
+    width: 230px;
+    height: 230px;
+    transform: translateX(-100px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(209, 204, 204, 0.4);
+    border: 3px solid rgba(209, 204, 204, 0.4);
+    background-size: cover;
+}
+
+.board-part-big .big-ball .five-balls {
+    width: 110px;
+    height: 360px;
+    position: absolute;
+    transform: translateX(50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-part-big .big-ball .five-balls .first-five {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(209, 204, 204, 0.4);
+    border: 3px solid rgba(209, 204, 204, 0.4);
+}
+
+.first,
+.fifth {
+    position: relative;
+    right: 60px;
+}
+
+.second,
+.fourth {
+    position: relative;
+    right: 10px;
+}
+
+.board-part-big .small-balls {
+    flex: 1;
+    display: flex;
+}
+
+.board-part-big .small-balls .board-part {
+    flex: 1;
+}
+
+.ball-bet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.ball-bet .ball-holder {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(209, 204, 204, 0.4);
+    border: 3px solid rgba(209, 204, 204, 0.4);
+}
+
+.ball-bet .value {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(196, 196, 196);
+}
+
+.first-ball .number {
+    width: 150px;
+    padding: 50px 0;
+    font-size: 50px;
+    text-align: center;
+}
+
+.number {
+    width: 100%;
+    height: 100%;
+    transition: .3s;
+    border-radius: 50%;
+    border: 1px solid rgba(209, 204, 204, 0.4);
+}
+
+.animate__animated .animate__fadeIn {
+    --animate-delay: 5s;
+    /*animation-duration: .9s;*/
+}
+
+/*.animate__animated .animate__fadeOut{*/
+/*    animation-duration: .9s;*/
+/*}*/
+
+.drawn-number {
+    width: 100%;
+    height: 100%;
+    /*transition: .3s;*/
+    /*animation-duration: .9s;*/
+    border-radius: 50%;
+    border: 1px solid rgba(209, 204, 204, 0.4);
+}
+
+.input-group {
+    width: 100%;
+}
+
+.end-of-game {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    opacity: 0;
+    transition: .2s;
+}
+
+
+.end-of-game p {
+    font-size: 130px;
+    color: white;
+    text-shadow: 10px 0px 10px black;
+}
+
+.end-of-game .close {
+    font-size: 60px;
+    font-family: 'Rubik', sans-serif;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.warning {
+    font-size: 22px;
+    display: none;
+}
+
+/* RESPONSIVE*/
+@media (max-width: 768px) {
+    /*SECOND PART*/
+    .board-part {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .board-part .ball-bet {
+        flex: 1;
+    }
+
+    .ball-bet {
+        padding: 0;
+        margin: 15px 0 15px 0;
+    }
+
+    .ball-bet .ball-holder {
+        height: 40px;
+        width: 40px;
+        border: 1px solid rgba(209, 204, 204, 0.4);
+    }
+
+    .ball-bet .value {
+        font-size: 16px;
+    }
+
+    .board-part-big .big-ball .first-ball {
+        width: 120px;
+        height: 120px;
+        transform: translateX(-40px);
+    }
+
+    .board-part-big .big-ball .five-balls .first-five {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(209, 204, 204, 0.4);
+    }
+
+    .board-part-big .big-ball {
+        border: 3px solid rgba(209, 204, 204, 0.4);
+    }
+
+    .first,
+    .fifth {
+        position: relative;
+        right: 45px;
+    }
+
+    .second,
+    .fourth {
+        position: relative;
+        right: 20px;
+    }
+
+    .third {
+        position: relative;
+        right: 10px;
+    }
+
+    /*    FIRST PART*/
+    .counter {
+        width: 150px;
+        height: 150px;
+        border: 3px solid rgba(209, 204, 204, 0.4);
+        font-size: 80px;
+    }
+
+    .ball {
+        width: 40px;
+        height: 40px;
+        margin: 10px 3px;
+    }
+
+    .number-holder {
+        width: 80%;
+        height: 50px;
+        justify-content: center;
+    }
+
+    .input-group {
+        width: 80%;
+        margin: 0 auto 10px auto;
+    }
+
+    .end-of-game p {
+        font-size: 16px;
+        text-shadow: 2px 0px 2px black;
+    }
+
+    .end-of-game .close {
+        font-size: 22px;
+    }
+}
+
+

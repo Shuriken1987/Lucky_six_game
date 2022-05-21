@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lucky six</title>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ANIMATE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+
+
+<div class="container mt-2">
+    <div class="end-of-game">
+        <p></p>
+        <button class="close">PLAY AGAIN?</button>
+    </div>
+    <div class="row">
+        <div class="col-md-3 ticket mx-0">
+            <div class="col-md-12 choosenNumbers">
+                <h3 class="text-center">Your numbers:</h3>
+                <div class="number-holder">
+
+                </div>
+            </div>
+            <div class="input-group  mt-5">
+                <input type="text" class="form-control" aria-label="Username"
+                       aria-describedby="addon-wrapping" id="place-bet">
+                <button class="btn btn-secondary bet">Bet</button>
+            </div>
+            <div class="warning-holder">
+                <p class="text-center warning"></p>
+            </div>
+        </div>
+        <div class="row col-md-9 pocetak mx-0">
+            <div class="col-md-5 video">
+                <div class="counter">
+
+                </div>
+            </div>
+            <div class="col-md-7 balls">
+                <div class="chooseBalls">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 board mx-0">
+            <div class="col-md-3 board-part">
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='6' data-value='10000'></img>
+                    </div>
+                    <span class="value">10000</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='7' data-value='7500'></img>
+                    </div>
+                    <span class="value">7500</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='8' data-value='5000'></img>
+                    </div>
+                    <span class="value">5000</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='9' data-value='2500'></img>
+                    </div>
+                    <span class="value">2500</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='10' data-value='1000'></img>
+                    </div>
+                    <span class="value">1000</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='11' data-value='500'></img>
+                    </div>
+                    <span class="value">500</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='12' data-value='300'></img>
+                    </div>
+                    <span class="value">300</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='13' data-value='200'></img>
+                    </div>
+                    <span class="value">200</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='14' data-value='150'></img>
+                    </div>
+                    <span class="value">150</span>
+                </div>
+            </div>
+            <div class="col-md-6 board-part-big">
+                <div class="big-ball">
+                    <div class="first-ball ">
+                        <img class="drawn-number"></img>
+                    </div>
+                    <div class="five-balls">
+                        <div class="first-five first">
+                            <img class="number" data-index='1'></img>
+                        </div>
+                        <div class="first-five second">
+                            <img class="number" data-index='2'></img>
+                        </div>
+                        <div class="first-five third">
+                            <img class="number" data-index='3'></img>
+                        </div>
+                        <div class="first-five fourth">
+                            <img class="number" data-index='4'></img>
+                        </div>
+                        <div class="first-five fifth">
+                            <img class="number" data-index='5'></img>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-balls">
+                    <div class="board-part">
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='15' data-value='100'></img>
+                            </div>
+                            <span class="value">100</span>
+                        </div>
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='16' data-value='90'></img>
+                            </div>
+                            <span class="value">90</span>
+                        </div>
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='17' data-value='80'></img>
+                            </div>
+                            <span class="value">80</span>
+                        </div>
+                    </div>
+                    <div class="board-part">
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='18' data-value='70'></img>
+                            </div>
+                            <span class="value">70</span>
+                        </div>
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='19' data-value='60'></img>
+                            </div>
+                            <span class="value">60</span>
+                        </div>
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='20' data-value='50'></img>
+                            </div>
+                            <span class="value">50</span>
+                        </div>
+                    </div>
+                    <div class="board-part">
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='21' data-value='40'></img>
+                            </div>
+                            <span class="value">40</span>
+                        </div>
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='22' data-value='30'></img>
+                            </div>
+                            <span class="value">30</span>
+                        </div>
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='23' data-value='25'></img>
+                            </div>
+                            <span class="value">25</span>
+                        </div>
+                    </div>
+                    <div class="board-part">
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='24' data-value='20'></img>
+                            </div>
+                            <span class="value">20</span>
+                        </div>
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='25' data-value='15'></img>
+                            </div>
+                            <span class="value">15</span>
+                        </div>
+                        <div class="ball-bet">
+                            <div class="ball-holder">
+                                <img class="number" data-index='26' data-value='10'></img>
+                            </div>
+                            <span class="value">10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 board-part">
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='27' data-value='9'></img>
+                    </div>
+                    <span class="value">9</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='28' data-value='8'></img>
+                    </div>
+                    <span class="value">8</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='29' data-value='7'></img>
+                    </div>
+                    <span class="value">7</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='30' data-value='6'></img>
+                    </div>
+                    <span class="value">6</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='31' data-value='5'></img>
+                    </div>
+                    <span class="value">5</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='32' data-value='4'></img>
+                    </div>
+                    <span class="value">4</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='33' data-value='3'></img>
+                    </div>
+                    <span class="value">3</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='34' data-value='2'></img>
+                    </div>
+                    <span class="value">2</span>
+                </div>
+                <div class="ball-bet">
+                    <div class="ball-holder">
+                        <img class="number" data-index='35' data-value='1'></img>
+                    </div>
+                    <span class="value">1</span>
+                </div>
+            </div>
+        </div>
+    </div>  <!--end row -->
+
+
+</div>     <!-- end container -->
+
+
+<script src="js/Ball.js"></script>
+<script src="js/Grid.js"></script>
+<script src="js/Game.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
