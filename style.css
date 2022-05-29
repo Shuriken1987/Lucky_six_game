@@ -9,7 +9,7 @@ body {
     background: url("img/bg.jpg");
 }
 
-.pocetak {
+.firstPart {
     height: auto;
     border: 5px solid rgba(209, 204, 204, 0.4);
     border-radius: 10px;
@@ -73,13 +73,20 @@ body {
     background: rgba(209, 204, 204, 0.4);;
 }
 
-.choosen {
+.chosen {
     border-radius: 50%;
     margin: 0 2px;
     background-size: cover;
     width: 40px;
     height: 40px;
     align-self: center;
+}
+
+.rounds{
+    /*height: 200px;*/
+    border: 5px solid rgba(209, 204, 204, 0.4);
+    border-radius: 10px;
+    color: rgba(209, 204, 204, 0.8);
 }
 
 /*end part 1*/
@@ -375,5 +382,8 @@ body {
         font-size: 22px;
     }
 }
+
+
+
 
 
