@@ -12,7 +12,9 @@ function mainCode() {
     let endOfGameText = document.querySelector('p');
     let warning = document.querySelector('.warning');
     let betted = false;
-
+    let roundsHolder = document.querySelector('.roundsHolder');
+    let statsBtn = document.querySelector('.stats');
+    let gameTables = document.querySelector('.game');
 
     betBtn.addEventListener('click', bets);
 
@@ -54,6 +56,22 @@ function mainCode() {
         });
     }
 
+    function lastFiveRounds() {
+        let lastRound = document.createElement('div');
+        game.drawnBalls.forEach(ball => {
+            let lastRoundBalls = document.createElement('img');
+            lastRound.className = 'lastRound';
+            lastRoundBalls.className = 'lastRoundBalls';
+            lastRoundBalls.setAttribute('src', ball.image);
+            lastRound.appendChild(lastRoundBalls)
+            roundsHolder.appendChild(lastRound);
+        })
+        let rounds = document.querySelectorAll('.lastRound');
+        if (rounds.length > 5) {
+            roundsHolder.removeChild(rounds[0])
+        }
+    }
+
     function draw() {
         inputHolder.style.display = 'none';
         let balls = grid.sortedDrawnBalls();
@@ -81,10 +99,6 @@ function mainCode() {
         }, 2000);
     }
 
-    function lastFiveRounds(){
-        let rounds = document.querySelector('.rounds');
-        rounds.innerHTML += game.drawnBalls + '</br>';
-    }
 
     function resetGame() {
         let chosen = document.querySelectorAll('.chosen');
@@ -116,7 +130,7 @@ function mainCode() {
 
     function checkWin(balls) {
         if (betted === true) {
-            let output = game.drawnBalls.filter(el => game.chosenNumbers.indexOf(el) !== -1);
+            let output = game.drawnBalls.filter(el => game.chosenNumbers.indexOf(el.value) !== -1);
             console.log(output);
             if (output.length === 6) {
                 balls.forEach(ball => {
@@ -173,6 +187,33 @@ function mainCode() {
                                    you hit ${output.length} numbers.
                 `;
     }
+
+    statsBtn.addEventListener('click', () => {
+        if (statsBtn.innerHTML === 'Stats') {
+            roundsHolder.style.display = 'block';
+            gameTables.style.display = 'none';
+            statsBtn.innerHTML = 'Game';
+        } else {
+            roundsHolder.style.display = 'none';
+            gameTables.style.display = 'flex';
+            statsBtn.innerHTML = 'Stats';
+        }
+    });
+
+    // function stats() {
+    //     rounds.style.display = 'block';
+    //     row.style.display = 'none';
+    //     statsBtn.innerHTML = 'game';
+    //     statsBtn.addEventListener('click',()=>{
+    //          if (statsBtn.innerHTML = 'game') {
+    //         rounds.style.display = 'none';
+    //         row.style.display = 'flex';
+    //
+    //     }
+    //           statsBtn.innerHTML = 'stats';
+    //     })
+    //
+    // }
 }
 
 mainCode();

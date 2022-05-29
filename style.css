@@ -1,4 +1,6 @@
-/*@import 'animate.css';*/
+:root{
+    --primaryColor: rgba(209, 204, 204, 0.4);
+}
 * {
     margin: 0;
     padding: 0;
@@ -9,15 +11,16 @@ body {
     background: url("img/bg.jpg");
 }
 
+                        /*CHOOSE BALLS*/
+
 .firstPart {
     height: auto;
-    border: 5px solid rgba(209, 204, 204, 0.4);
+    border: 5px solid var(--primaryColor);
     border-radius: 10px;
-    /*display: none;*/
 }
 
 .ticket {
-    border: 5px solid rgba(209, 204, 204, 0.4);
+    border: 5px solid var(--primaryColor);
     border-radius: 10px;
     transition: .2s;
 }
@@ -40,11 +43,11 @@ body {
     border-radius: 50%;
     width: 300px;
     height: 300px;
-    border: 5px solid rgba(209, 204, 204, 0.4);
+    border: 5px solid var(--primaryColor);
     justify-content: center;
     align-items: center;
     font-size: 100px;
-    color: rgba(209, 204, 204, 0.4);
+    color: var(--primaryColor);
 }
 
 .ball {
@@ -60,17 +63,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgba(209, 204, 204, 0.4);
+    color: var(--primaryColor);
 }
 
 .number-holder {
-    border: 2px solid rgba(209, 204, 204, 0.4);
+    border: 2px solid var(--primaryColor);
     border-radius: 20px;
     width: 90%;
     height: 50px;
     display: flex;
     flex-direction: row;
-    background: rgba(209, 204, 204, 0.4);;
+    background: var(--primaryColor);
 }
 
 .chosen {
@@ -82,23 +85,15 @@ body {
     align-self: center;
 }
 
-.rounds{
-    /*height: 200px;*/
-    border: 5px solid rgba(209, 204, 204, 0.4);
-    border-radius: 10px;
-    color: rgba(209, 204, 204, 0.8);
-}
-
-/*end part 1*/
+                           /*DRAW BALLS*/
 .board {
     height: auto;
     display: flex;
     background-color: transparent;
-    border: 5px solid rgba(209, 204, 204, 0.4);
+    border: 5px solid var(--primaryColor);
     border-radius: 10px;
     flex: 5;
     padding: 0;
-    /*display: none;*/
 }
 
 .board-part {
@@ -124,7 +119,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    border: 5px solid rgba(209, 204, 204, 0.4);
+    border: 5px solid var(--primaryColor);
     border-radius: 10px;
     margin-top: 10px;
 }
@@ -137,8 +132,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(209, 204, 204, 0.4);
-    border: 3px solid rgba(209, 204, 204, 0.4);
+    background-color:var(--primaryColor);
+    border: 3px solid var(--primaryColor);
     background-size: cover;
 }
 
@@ -161,8 +156,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(209, 204, 204, 0.4);
-    border: 3px solid rgba(209, 204, 204, 0.4);
+    background-color: var(--primaryColor);
+    border: 3px solid var(--primaryColor);
 }
 
 .first,
@@ -200,8 +195,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(209, 204, 204, 0.4);
-    border: 3px solid rgba(209, 204, 204, 0.4);
+    background-color: var(--primaryColor);
+    border: 3px solid var(--primaryColor);
 }
 
 .ball-bet .value {
@@ -225,31 +220,39 @@ body {
     height: 100%;
     transition: .3s;
     border-radius: 50%;
-    border: 1px solid rgba(209, 204, 204, 0.4);
+    border: 1px solid var(--primaryColor);
 }
 
 .animate__animated .animate__fadeIn {
     --animate-delay: 5s;
-    /*animation-duration: .9s;*/
 }
 
-/*.animate__animated .animate__fadeOut{*/
-/*    animation-duration: .9s;*/
-/*}*/
+                           /*STATS*/
 
-.drawn-number {
-    width: 100%;
-    height: 100%;
-    /*transition: .3s;*/
-    /*animation-duration: .9s;*/
+.roundsHolder {
+    border: 5px solid var(--primaryColor);
+    border-radius: 10px;
+    color: var(--primaryColor);
+    display: none;
+}
+
+.lastRoundBalls {
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    border: 1px solid rgba(209, 204, 204, 0.4);
 }
 
-.input-group {
+.lastRound {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
+                       /*END OF GAME*/
 .end-of-game {
     width: 100%;
     height: 100%;
@@ -282,6 +285,18 @@ body {
     padding: 10px;
 }
 
+                 /*TICKET*/
+.drawn-number {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid var(--primaryColor);
+}
+
+.input-group {
+    width: 100%;
+}
+
 .warning {
     font-size: 22px;
     display: none;
@@ -289,70 +304,12 @@ body {
 
 /* RESPONSIVE*/
 @media (max-width: 768px) {
-    /*SECOND PART*/
-    .board-part {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
 
-    .board-part .ball-bet {
-        flex: 1;
-    }
-
-    .ball-bet {
-        padding: 0;
-        margin: 15px 0 15px 0;
-    }
-
-    .ball-bet .ball-holder {
-        height: 40px;
-        width: 40px;
-        border: 1px solid rgba(209, 204, 204, 0.4);
-    }
-
-    .ball-bet .value {
-        font-size: 16px;
-    }
-
-    .board-part-big .big-ball .first-ball {
-        width: 120px;
-        height: 120px;
-        transform: translateX(-40px);
-    }
-
-    .board-part-big .big-ball .five-balls .first-five {
-        width: 40px;
-        height: 40px;
-        border: 1px solid rgba(209, 204, 204, 0.4);
-    }
-
-    .board-part-big .big-ball {
-        border: 3px solid rgba(209, 204, 204, 0.4);
-    }
-
-    .first,
-    .fifth {
-        position: relative;
-        right: 45px;
-    }
-
-    .second,
-    .fourth {
-        position: relative;
-        right: 20px;
-    }
-
-    .third {
-        position: relative;
-        right: 10px;
-    }
-
-    /*    FIRST PART*/
+    /*   CHOOSE BALLS*/
     .counter {
         width: 150px;
         height: 150px;
-        border: 3px solid rgba(209, 204, 204, 0.4);
+        border: 3px solid var(--primaryColor);
         font-size: 80px;
     }
 
@@ -380,6 +337,65 @@ body {
 
     .end-of-game .close {
         font-size: 22px;
+    }
+
+    /*DRAW BALLS*/
+    .board-part {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .board-part .ball-bet {
+        flex: 1;
+    }
+
+    .ball-bet {
+        padding: 0;
+        margin: 15px 0 15px 0;
+    }
+
+    .ball-bet .ball-holder {
+        height: 40px;
+        width: 40px;
+        border: 1px solid var(--primaryColor);
+    }
+
+    .ball-bet .value {
+        font-size: 16px;
+    }
+
+    .board-part-big .big-ball .first-ball {
+        width: 120px;
+        height: 120px;
+        transform: translateX(-40px);
+    }
+
+    .board-part-big .big-ball .five-balls .first-five {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--primaryColor);
+    }
+
+    .board-part-big .big-ball {
+        border: 3px solid var(--primaryColor);
+    }
+
+    .first,
+    .fifth {
+        position: relative;
+        right: 45px;
+    }
+
+    .second,
+    .fourth {
+        position: relative;
+        right: 20px;
+    }
+
+    .third {
+        position: relative;
+        right: 10px;
     }
 }
 

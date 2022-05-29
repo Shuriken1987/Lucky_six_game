@@ -24,13 +24,12 @@ class Game {
 
     getRandomBall() {
         this.ball = '';
-        // console.log(this.balls.length)
         if (this.balls.length === 13) {
             this.balls = [].concat(this.ballsCopy);
         }
         let rand = Math.floor(Math.random() * this.balls.length);
         this.ball = this.balls[rand];
-        this.drawnBalls.push(this.ball.value);
+        this.drawnBalls.push(this.ball);
         this.balls.splice(rand, 1);
         return this.ball;
     }
