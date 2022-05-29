@@ -70,7 +70,7 @@ function mainCode() {
                 balls[i].setAttribute('src', ballImage);
                 balls[i].style.display = 'block';
                 i++;
-            }, 100);
+            }, 1000);
             if (i === grid.drawnBalls.length) {
                 clearInterval(loop);
                 clearInterval(loop_2);
@@ -78,7 +78,7 @@ function mainCode() {
                 lastFiveRounds();
                 resetGame();
             }
-        }, 500);
+        }, 2000);
     }
 
     function lastFiveRounds(){
