@@ -1,29 +1,31 @@
 class Game {
     balls;
     drawnBalls;
-    choosenNumbers;
+    chosenNumbers;
     ballsCopy;
 
     constructor(balls) {
         this.balls = balls;
         this.drawnBalls = [];
-        this.choosenNumbers = [];
+        this.chosenNumbers = [];
         this.ballsCopy = [].concat(this.balls);
     }
 
     playerNumbers(ball) {
-        if (this.choosenNumbers.indexOf(ball) === -1 && this.choosenNumbers.length < 6) {
-            this.choosenNumbers.push(ball);
-        } else if (this.choosenNumbers.indexOf(ball) > -1) {
-            this.choosenNumbers.splice(this.choosenNumbers.indexOf(ball), 1);
+        if (this.chosenNumbers.indexOf(ball) === -1 && this.chosenNumbers.length < 6) {
+            this.chosenNumbers.push(ball);
+        } else if (this.chosenNumbers.indexOf(ball) > -1) {
+            this.chosenNumbers.splice(this.chosenNumbers.indexOf(ball), 1);
         }
         // this.choosenNumbers.indexOf(ball) === -1 ? this.choosenNumbers.push(ball) : this.choosenNumbers.splice(this.choosenNumbers.indexOf(ball), 1);
-        return this.choosenNumbers;
+
+        return this.chosenNumbers;
     }
 
     getRandomBall() {
         this.ball = '';
-        if (this.balls.length === 14){
+        // console.log(this.balls.length)
+        if (this.balls.length === 13) {
             this.balls = [].concat(this.ballsCopy);
         }
         let rand = Math.floor(Math.random() * this.balls.length);
