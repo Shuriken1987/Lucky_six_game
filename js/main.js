@@ -66,20 +66,22 @@ function mainCode() {
             firstBall.setAttribute('src', ballImage);
             firstBall.style.display = 'block';
             firstBall.classList.add('animate__animated', 'animate__zoomInUp');
-               balls[i].setAttribute('src', ballImage);
-                balls[i].style.display = 'block';
-                balls[i].classList.add('animate__animated', 'animate__fadeIn');
+            balls[i].setAttribute('src', ballImage);
+            balls[i].style.display = 'block';
+            balls[i].classList.add('animate__animated', 'animate__fadeIn');
             let loop_2 = setTimeout(() => {
                 firstBall.classList.remove('animate__animated', 'animate__zoomInUp');
                 i++;
-            }, 500);
+            }, 700);
             if (i === grid.drawnBalls.length - 1) {
                 // game.roundOver = true;
                 clearInterval(loop_2);
                 clearInterval(loop);
-                checkWin(balls);
                 lastFiveRounds();
-                setTimeout(resetGame,3500);
+                setTimeout(() => {
+                    checkWin(balls);
+                    resetGame();
+                }, 3500);
             }
         }, 2000);
     }
