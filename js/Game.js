@@ -9,6 +9,7 @@ class Game {
         this.drawnBalls = [];
         this.chosenNumbers = [];
         this.ballsCopy = [].concat(this.balls);
+        // this.roundOver = false;
     }
 
     playerNumbers(ball) {
@@ -24,7 +25,7 @@ class Game {
 
     getRandomBall() {
         this.ball = '';
-        if (this.balls.length === 13) {
+        if (this.balls.length === 13) {    // probaj sa nulom, cisto da vidis
             this.balls = [].concat(this.ballsCopy);
         }
         let rand = Math.floor(Math.random() * this.balls.length);

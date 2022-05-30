@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+/*.animate__animated.animate__animate__zoomInUp {*/
+/*  --animate-delay: 5s;*/
+/*}*/
+
 body {
     background: url("img/bg.jpg");
 }
@@ -221,10 +225,7 @@ body {
     transition: .3s;
     border-radius: 50%;
     border: 1px solid var(--primaryColor);
-}
-
-.animate__animated .animate__fadeIn {
-    --animate-delay: 5s;
+    animation-delay: .7s;
 }
 
                            /*STATS*/

@@ -32,11 +32,11 @@ function mainCode() {
             if (counter === 0) {
                 chooseBallsDiv.style.display = 'none';
                 drawBallsDiv.style.display = 'flex';
-                draw();
                 clearInterval(loop);
+                draw();
             }
             counterDiv.innerHTML = counter--;
-        }, 1000)
+        }, 1000);
     }
 
     function chooseNumber() {
@@ -56,22 +56,6 @@ function mainCode() {
         });
     }
 
-    function lastFiveRounds() {
-        let lastRound = document.createElement('div');
-        game.drawnBalls.forEach(ball => {
-            let lastRoundBalls = document.createElement('img');
-            lastRound.className = 'lastRound';
-            lastRoundBalls.className = 'lastRoundBalls';
-            lastRoundBalls.setAttribute('src', ball.image);
-            lastRound.appendChild(lastRoundBalls)
-            roundsHolder.appendChild(lastRound);
-        })
-        let rounds = document.querySelectorAll('.lastRound');
-        if (rounds.length > 5) {
-            roundsHolder.removeChild(rounds[0])
-        }
-    }
-
     function draw() {
         inputHolder.style.display = 'none';
         let balls = grid.sortedDrawnBalls();
@@ -82,23 +66,23 @@ function mainCode() {
             firstBall.setAttribute('src', ballImage);
             firstBall.style.display = 'block';
             firstBall.classList.add('animate__animated', 'animate__zoomInUp');
+               balls[i].setAttribute('src', ballImage);
+                balls[i].style.display = 'block';
+                balls[i].classList.add('animate__animated', 'animate__fadeIn');
             let loop_2 = setTimeout(() => {
                 firstBall.classList.remove('animate__animated', 'animate__zoomInUp');
-                balls[i].classList.add('animate__animated', 'animate__fadeIn');
-                balls[i].setAttribute('src', ballImage);
-                balls[i].style.display = 'block';
                 i++;
-            }, 1000);
-            if (i === grid.drawnBalls.length) {
-                clearInterval(loop);
+            }, 500);
+            if (i === grid.drawnBalls.length - 1) {
+                // game.roundOver = true;
                 clearInterval(loop_2);
+                clearInterval(loop);
                 checkWin(balls);
                 lastFiveRounds();
-                resetGame();
+                setTimeout(resetGame,3500);
             }
         }, 2000);
     }
-
 
     function resetGame() {
         let chosen = document.querySelectorAll('.chosen');
@@ -124,6 +108,7 @@ function mainCode() {
         // bets();
         betted = false;
         warning.innerHTML = '';
+        // game.roundOver = false;
         startGame();
     }
 
@@ -186,6 +171,22 @@ function mainCode() {
         endOfGameText.innerHTML = `You lost,
                                    you hit ${output.length} numbers.
                 `;
+    }
+
+    function lastFiveRounds() {
+        let lastRound = document.createElement('div');
+        game.drawnBalls.forEach(ball => {
+            let lastRoundBalls = document.createElement('img');
+            lastRound.className = 'lastRound';
+            lastRoundBalls.className = 'lastRoundBalls';
+            lastRoundBalls.setAttribute('src', ball.image);
+            lastRound.appendChild(lastRoundBalls)
+            roundsHolder.appendChild(lastRound);
+        })
+        let rounds = document.querySelectorAll('.lastRound');
+        if (rounds.length > 5) {
+            roundsHolder.removeChild(rounds[0])
+        }
     }
 
     statsBtn.addEventListener('click', () => {
