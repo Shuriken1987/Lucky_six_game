@@ -84,7 +84,7 @@ function mainCode() {
                     resetGame();
                 }, 3500);
             }
-        }, 2000);
+        }, 1000);
     }
 
     function resetGame() {
@@ -149,7 +149,7 @@ function mainCode() {
     }
 
     function displayWarning(bet) {
-        if (game.playerNumbers().length !== 6) {
+        if (game.chosenNumbers.length !== 6) {
             warning.innerHTML = 'Please select 6 numbers first.';
         } else if (isNaN(bet)) {
             warning.innerHTML = 'Invalid bet.';
