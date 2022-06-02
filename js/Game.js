@@ -8,8 +8,7 @@ class Game {
         this.balls = balls;
         this.drawnBalls = [];
         this.chosenNumbers = [];
-        this.ballsCopy = [].concat(this.balls);
-        // this.roundOver = false;
+        this.ballsCopy = [...this.balls];
     }
 
     playerNumbers(ball) {
@@ -19,20 +18,22 @@ class Game {
             this.chosenNumbers.splice(this.chosenNumbers.indexOf(ball), 1);
         }
         // this.choosenNumbers.indexOf(ball) === -1 ? this.choosenNumbers.push(ball) : this.choosenNumbers.splice(this.choosenNumbers.indexOf(ball), 1);
-
         return this.chosenNumbers;
     }
 
     getRandomBall() {
         this.ball = '';
-        if (this.balls.length === 13) {    // probaj sa nulom, cisto da vidis
-            this.balls = [].concat(this.ballsCopy);
+        if (this.balls.length === 13) {
+            this.balls = [...this.ballsCopy];
         }
         let rand = Math.floor(Math.random() * this.balls.length);
         this.ball = this.balls[rand];
         this.drawnBalls.push(this.ball);
         this.balls.splice(rand, 1);
         return this.ball;
+    }
+    checkWin(){
+        return this.drawnBalls.filter(ball => this.playerNumbers().indexOf(ball.value) !== -1);
     }
 
 

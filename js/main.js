@@ -4,6 +4,7 @@ function mainCode() {
     let chooseBallsDiv = document.querySelector('.firstPart');
     let drawBallsDiv = document.querySelector('.board');
     let firstBall = document.querySelector('.drawn-number');
+    let infoDiv = document.querySelector('.ticket');
     let inputHolder = document.querySelector('.input-group');
     let betBtn = document.querySelector('.bet');               // button for placing bets
     let bet = document.querySelector('#place-bet');         // input field for placing bets
@@ -16,9 +17,9 @@ function mainCode() {
     let statsBtn = document.querySelector('.stats');
     let gameTables = document.querySelector('.game');
 
-    betBtn.addEventListener('click', bets);
-
     startGame();
+
+    betBtn.addEventListener('click', bets);
 
     function startGame() {
         newRound();
@@ -34,14 +35,15 @@ function mainCode() {
                 drawBallsDiv.style.display = 'flex';
                 clearInterval(loop);
                 draw();
+                if (!betted) infoDiv.style.display = 'none';
             }
             counterDiv.innerHTML = counter--;
         }, 1000);
     }
 
     function chooseNumber() {
-        let ball = parseInt(this.getAttribute('data-id'));
-        game.playerNumbers(ball);
+        let selectedBall = parseInt(this.getAttribute('data-id'));
+        game.playerNumbers(selectedBall);
         let numberHolder = document.querySelector('.number-holder');
         let number = document.createElement('div');
         number.className = 'chosen';
@@ -50,9 +52,9 @@ function mainCode() {
         numberHolder.appendChild(number);
         let chosen = document.querySelectorAll('.chosen');
         chosen.forEach(el => {
-            if (el.getAttribute('data-id') === this.getAttribute('data-id') && game.chosenNumbers.indexOf(ball) === -1) {
+            let existingBall = parseInt(el.getAttribute('data-id'));
+            if (selectedBall === existingBall && game.chosenNumbers.indexOf(selectedBall) === -1)
                 numberHolder.removeChild(el);
-            }
         });
     }
 
@@ -73,8 +75,7 @@ function mainCode() {
                 firstBall.classList.remove('animate__animated', 'animate__zoomInUp');
                 i++;
             }, 700);
-            if (i === grid.drawnBalls.length - 1) {
-                // game.roundOver = true;
+            if (i === grid.sortedDrawnBalls().length - 1) {
                 clearInterval(loop_2);
                 clearInterval(loop);
                 lastFiveRounds();
@@ -96,7 +97,7 @@ function mainCode() {
         firstBall.removeAttribute('src');
         firstBall.style.display = 'none';
         inputHolder.style.display = 'flex';
-        grid.drawnBalls.forEach(ball => {
+        grid.sortedDrawnBalls().forEach(ball => {
             ball.removeAttribute('src')
             ball.style.display = 'none';
             ball.classList.remove('animate__animated', 'animate__fadeIn');
@@ -107,28 +108,26 @@ function mainCode() {
             endOfGameText.innerHTML = '';
             endOfGame.style.display = 'none';
         });
-        // bets();
+        infoDiv.style.display = 'block';
         betted = false;
         warning.innerHTML = '';
-        // game.roundOver = false;
         startGame();
     }
 
-
     function checkWin(balls) {
-        if (betted === true) {
-            let output = game.drawnBalls.filter(el => game.chosenNumbers.indexOf(el.value) !== -1);
-            console.log(output);
-            if (output.length === 6) {
+        if (betted) {
+            let hitNumbers = game.checkWin();
+            let ballImg = 'img/' + hitNumbers[hitNumbers.length - 1].value + '.png';
+            if (hitNumbers.length === 6) {
                 balls.forEach(ball => {
-                    if (ball.getAttribute('src') === 'img/' + output[output.length - 1] + '.png') {
-                        let x = ball.getAttribute('data-value');
-                        let win = x * bet.value;
+                    if (ball.getAttribute('src') === ballImg) {
+                        let lastBall = ball.getAttribute('data-value');
+                        let win = lastBall * bet.value;
                         playerWonStyle(win);
                     }
                 });
             } else {
-                playerLostStyle(output);
+                playerLostStyle(hitNumbers);
             }
             endOfGame.style.opacity = '.9';
             endOfGame.style.zIndex = '1';
@@ -150,7 +149,7 @@ function mainCode() {
     }
 
     function displayWarning(bet) {
-        if (game.chosenNumbers.length !== 6) {
+        if (game.playerNumbers().length !== 6) {
             warning.innerHTML = 'Please select 6 numbers first.';
         } else if (isNaN(bet)) {
             warning.innerHTML = 'Invalid bet.';
@@ -167,11 +166,11 @@ function mainCode() {
         endOfGameText.innerHTML = 'Congratulations you won ' + win + '$';
     }
 
-    function playerLostStyle(output) {
+    function playerLostStyle(hitNumbers) {
         endOfGame.style.display = 'flex';
         endOfGame.style.backgroundColor = 'rgba(219, 32, 32, 0.904)';
         endOfGameText.innerHTML = `You lost,
-                                   you hit ${output.length} numbers.
+                                   you hit ${hitNumbers.length} numbers.
                 `;
     }
 
@@ -204,18 +203,15 @@ function mainCode() {
     });
 
     // function stats() {
-    //     rounds.style.display = 'block';
-    //     row.style.display = 'none';
-    //     statsBtn.innerHTML = 'game';
-    //     statsBtn.addEventListener('click',()=>{
-    //          if (statsBtn.innerHTML = 'game') {
-    //         rounds.style.display = 'none';
-    //         row.style.display = 'flex';
-    //
+    // if (statsBtn.innerHTML === 'Stats') {
+    //         roundsHolder.style.display = 'block';
+    //         gameTables.style.display = 'none';
+    //         statsBtn.innerHTML = 'Game';
+    //     } else {
+    //         roundsHolder.style.display = 'none';
+    //         gameTables.style.display = 'flex';
+    //         statsBtn.innerHTML = 'Stats';
     //     }
-    //           statsBtn.innerHTML = 'stats';
-    //     })
-    //
     // }
 }
 

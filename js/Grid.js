@@ -9,8 +9,8 @@ class Grid {
         for (let i = 0; i < this.balls.length; i++) {
             this.div = document.createElement('div');
             this.div.className = 'ball';
-            this.div.style.backgroundImage = "url(" + balls[i].image + ")";
-            this.div.setAttribute('data-id', balls[i].value);
+            this.div.style.backgroundImage = "url(" + this.balls[i].image + ")";
+            this.div.setAttribute('data-id', this.balls[i].value);
             this.grid.appendChild(this.div);
         }
         return this.grid;
