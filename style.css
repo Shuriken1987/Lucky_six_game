@@ -7,10 +7,6 @@
     box-sizing: border-box;
 }
 
-/*.animate__animated.animate__animate__zoomInUp {*/
-/*  --animate-delay: 5s;*/
-/*}*/
-
 body {
     background: url("img/bg.jpg");
 }

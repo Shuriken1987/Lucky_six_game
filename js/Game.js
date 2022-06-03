@@ -23,13 +23,14 @@ class Game {
 
     getRandomBall() {
         this.ball = '';
-        if (this.balls.length === 13) {
-            this.balls = [...this.ballsCopy];
-        }
+
         let rand = Math.floor(Math.random() * this.balls.length);
         this.ball = this.balls[rand];
         this.drawnBalls.push(this.ball);
         this.balls.splice(rand, 1);
+        if (this.balls.length === 13) {
+            this.balls = [...this.ballsCopy];
+        }
         return this.ball;
     }
     checkWin(){

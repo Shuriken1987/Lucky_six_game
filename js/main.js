@@ -73,9 +73,9 @@ function mainCode() {
             balls[i].classList.add('animate__animated', 'animate__fadeIn');
             let loop_2 = setTimeout(() => {
                 firstBall.classList.remove('animate__animated', 'animate__zoomInUp');
-                i++;
             }, 700);
-            if (i === grid.sortedDrawnBalls().length - 1) {
+            i++;
+            if (i === grid.sortedDrawnBalls().length) {
                 clearInterval(loop_2);
                 clearInterval(loop);
                 lastFiveRounds();
