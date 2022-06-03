@@ -84,7 +84,7 @@ function mainCode() {
                     resetGame();
                 }, 3500);
             }
-        }, 1000);
+        }, 2000);
     }
 
     function resetGame() {
